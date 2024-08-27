@@ -1,0 +1,168 @@
+/* Mengatur tampilan dasar dari body */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: radial-gradient(circle, #a2c2e8, #e0f7fa); /* Gradient biru muda */
+    margin: 0;
+    padding: 0;
+    animation: backgroundAnimation 15s ease-in-out infinite; /* Animasi gradient background */
+    color: #333; /* Warna teks default */
+    overflow-x: hidden; /* Menghindari scroll horizontal */
+    position: relative;
+}
+
+/* Menambahkan elemen bintang berkelap-kelip */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite ease-in-out;
+}
+
+/* Mengatur tampilan kontainer untuk konten utama */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95); /* Warna putih dengan transparansi */
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out; /* Animasi fade-in-up */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+    position: relative;
+}
+
+/* Mengatur tampilan judul */
+h1 {
+    color: #ff4081; /* Warna pink cerah */
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: textEffect 2s ease-out; /* Animasi text effect */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Bayangan teks */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animasi teks pada judul */
+@keyframes textEffect {
+    0% { transform: translateY(30px); opacity: 0; }
+    50% { transform: translateY(-10px); opacity: 0.5; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Mengatur tampilan paragraf */
+p {
+    margin-bottom: 20px;
+    color: #333; /* Warna teks paragraf tetap default */
+    font-size: 1.2em;
+    line-height: 1.8;
+    padding: 20px;
+    border-left: 5px solid #ff4081; /* Border samping warna pink cerah */
+    background: rgba(255, 105, 180, 0.2); /* Latar belakang pink cerah transparan */
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+    position: relative;
+}
+
+/* Menambahkan efek hover pada paragraf */
+p:hover {
+    transform: scale(1.05) rotate(-2deg);
+    background: rgba(255, 105, 180, 0.4); /* Latar belakang pink cerah saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mengatur tampilan elemen <em> di dalam paragraf */
+p em {
+    color: #ff4081; /* Warna pink cerah */
+    font-style: italic;
+}
+
+/* Menambahkan foto dengan bingkai lonjong dan animasi hati */
+img.photo {
+    display: block;
+    margin: 20px auto;
+    max-width: 350px; /* Memperbesar ukuran foto */
+    height: 450px; /* Mengatur tinggi tetap agar bentuk lonjong */
+    object-fit: cover; /* Memastikan foto tidak terdistorsi */
+    border-radius: 20px; /* Membuat sudut lonjong */
+    border: 10px solid #fff; /* Bingkai foto */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: bounce 1.5s infinite ease-in-out; /* Animasi bounce */
+}
+
+/* Bingkai dengan animasi hati */
+img.photo::before {
+    content: "❤️"; /* Simbol hati */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: #ff4081; /* Warna pink cerah hati */
+    animation: heartBeat 1.5s infinite; /* Animasi heart beat */
+}
+
+/* Animasi untuk background body */
+@keyframes backgroundAnimation {
+    0% { background: radial-gradient(circle, #a2c2e8, #e0f7fa); }
+    50% { background: radial-gradient(circle, #e0f7fa, #a2c2e8); }
+    100% { background: radial-gradient(circle, #a2c2e8, #e0f7fa); }
+}
+
+/* Animasi fade-in-up untuk container */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi bintang berkelap-kelip */
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Animasi bounce untuk foto */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Animasi heart beat untuk bingkai hati */
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
+}
